@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   skip_before_action :authorize, only: [:new, :create]
-  class OrdersController < ApplicationController
+  # class OrdersController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:new, :create]
   # key new method os the ensure_cart_isnt_empty
@@ -76,7 +76,7 @@ class OrdersController < ApplicationController
   redirect_to store_index_url, notice: 'Your cart is empty'
   end
   end
-end
+  
 
     # Use callbacks to share common setup or constraints between actions.
     def set_order
@@ -87,4 +87,4 @@ end
     def order_params
       params.require(:order).permit(:name, :address, :email, :pay_type)
     end
-
+end
